@@ -7,7 +7,7 @@ const product=require('./features/products/products.router');
 const cart=require('./features/cart/cart.router');
 const dbConnect=require('./config/db')
 dotenv.config();
-let PORT =8080;
+let PORT =process.env.PORT;
 
 const app = express();
 app.use(cors());
@@ -22,7 +22,7 @@ app.get('/' , (req , res) => {
   res.send("<div> <h1>LIFE IS AWESOME...</h1> <h3> You are watching backend of Beauty hub a clone of Skin Store </h3> </div>")
 })
 
-app.listen(PORT, async () => {
+app.listen(PORT||8080, async () => {
   await dbConnect();
   console.log(`Listening on http://localhost:${PORT}`);
 });
