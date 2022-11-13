@@ -7,7 +7,7 @@ const product=require('./features/products/products.router');
 const cart=require('./features/cart/cart.router');
 const dbConnect=require('./config/db')
 dotenv.config();
-let PORT =process.env.PORT;
+let PORT =process.env.PORT || 8080;
 
 const app = express();
 app.use(cors());
